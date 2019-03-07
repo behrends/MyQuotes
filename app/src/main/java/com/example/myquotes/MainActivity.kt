@@ -15,4 +15,8 @@ class MainActivity : AppCompatActivity() {
     fun nextQuote(view: View) {
         Toast.makeText(this, "Nächstes Zitat", Toast.LENGTH_SHORT).show()
     }
+
+    fun previousQuote(view: View) {
+        Toast.makeText(this, "Voriges Zitat", Toast.LENGTH_SHORT).show()
+    }
 }
