@@ -47,7 +47,7 @@
             android:textAlignment="textEnd"/>
     <Button
             android:id="@+id/button"
-            android:text="Nächstes"
+            android:text="@string/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
