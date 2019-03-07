@@ -8,6 +8,7 @@
         tools:context=".MainActivity">
 
     <TextView
+            android:id="@+id/textView14"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Nichts ist so beständig wie der Wandel."
@@ -17,6 +18,20 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textSize="36sp"
             android:textStyle="italic"
-            android:textAlignment="center" android:layout_marginLeft="8dp" android:layout_marginRight="8dp"/>
+            android:textAlignment="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"/>
+    <TextView
+            android:id="@+id/textView17"
+            android:text="-- Heraklit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:textAlignment="textEnd"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
