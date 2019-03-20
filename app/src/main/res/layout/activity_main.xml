@@ -8,7 +8,7 @@
         tools:context=".MainActivity">
 
     <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/quote_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Nichts ist so beständig wie der Wandel."
@@ -22,47 +22,47 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"/>
     <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/quote_author"
             android:text="-- Heraklit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/textView14"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            app:layout_constraintEnd_toEndOf="@+id/quote_text"
+            app:layout_constraintTop_toBottomOf="@+id/quote_text"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="24dp"
             android:layout_marginStart="8dp"
             android:textSize="18sp"
             android:textAlignment="textEnd"/>
     <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/quote_year"
             android:text="480 v. Chr."
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/textView17"
-            app:layout_constraintEnd_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/quote_author"
+            app:layout_constraintEnd_toEndOf="@+id/quote_author"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textSize="12sp"
             android:textAlignment="textEnd"/>
     <Button
-            android:id="@+id/button"
+            android:id="@+id/quote_next"
             android:text="@string/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button4"
+            app:layout_constraintStart_toEndOf="@+id/quote_previous"
             android:layout_marginBottom="24dp"
             android:onClick="nextQuote"/>
     <Button
-            android:id="@+id/button4"
+            android:id="@+id/quote_previous"
             android:text="@string/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintTop_toTopOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/quote_next"
+            app:layout_constraintTop_toTopOf="@+id/quote_next"
             android:onClick="previousQuote"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
