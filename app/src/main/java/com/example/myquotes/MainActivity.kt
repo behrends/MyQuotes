@@ -12,9 +12,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<TextView>(R.id.quote_text).text = "Probleme kann man niemals mit derselben Denkweise lösen, durch die sie entstanden sind."
-        findViewById<TextView>(R.id.quote_author).text = "Albert Einstein"
-        findViewById<TextView>(R.id.quote_year).text = "1948"
+        val quote = Quote(
+            "Probleme kann man niemals mit derselben Denkweise lösen, durch die sie entstanden sind.",
+            "Albert Einstein",
+            "1948"
+        )
+
+        findViewById<TextView>(R.id.quote_text).text = quote.text
+        findViewById<TextView>(R.id.quote_author).text = quote.author
+        findViewById<TextView>(R.id.quote_year).text = quote.year
     }
 
     fun nextQuote(view: View) {
