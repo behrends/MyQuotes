@@ -55,8 +55,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setVisibilityOfButtons() = when (index) {
-        0 -> quotePrevious.visibility = View.INVISIBLE
-        quotes.size - 1 -> quoteNext.visibility = View.INVISIBLE
+        0 -> {
+            quotePrevious.visibility = View.INVISIBLE
+            quoteNext.visibility = if(quotes.size > 1) View.VISIBLE else View.INVISIBLE
+        }
+        quotes.size - 1 -> {
+            quoteNext.visibility = View.INVISIBLE
+            quotePrevious.visibility = if(quotes.size > 1) View.VISIBLE else View.INVISIBLE
+        }
         else -> {
             quotePrevious.visibility = View.VISIBLE
             quoteNext.visibility = View.VISIBLE
