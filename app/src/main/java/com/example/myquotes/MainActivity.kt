@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        showQuote()
+    }
+
+    private fun showQuote() {
         findViewById<TextView>(R.id.quote_text).text = quotes[index].text
         findViewById<TextView>(R.id.quote_author).text = quotes[index].author
         findViewById<TextView>(R.id.quote_year).text = quotes[index].year
@@ -39,12 +42,11 @@ class MainActivity : AppCompatActivity() {
 
     fun nextQuote(view: View) {
         if(index < quotes.size - 1) index++
-        findViewById<TextView>(R.id.quote_text).text = quotes[index].text
-        findViewById<TextView>(R.id.quote_author).text = quotes[index].author
-        findViewById<TextView>(R.id.quote_year).text = quotes[index].year
+        showQuote()
     }
 
     fun previousQuote(view: View) {
-        Toast.makeText(this, "Voriges Zitat", Toast.LENGTH_SHORT).show()
+        if(index > 0) index--
+        showQuote()
     }
 }
