@@ -3,6 +3,7 @@ package com.example.myquotes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var quoteText: TextView
     private lateinit var quoteAuthor: TextView
     private lateinit var quoteYear: TextView
+    private lateinit var quoteNext: Button
+    private lateinit var quotePrevious: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +41,11 @@ class MainActivity : AppCompatActivity() {
         quoteText = findViewById(R.id.quote_text)
         quoteAuthor = findViewById(R.id.quote_author)
         quoteYear = findViewById(R.id.quote_year)
+        quoteNext = findViewById(R.id.quote_next)
+        quotePrevious = findViewById(R.id.quote_previous)
 
         showQuote()
+        setVisibilityOfButtons()
     }
 
     private fun showQuote() {
@@ -48,13 +54,24 @@ class MainActivity : AppCompatActivity() {
         quoteYear.text = quotes[index].year
     }
 
+    private fun setVisibilityOfButtons() = when (index) {
+        0 -> quotePrevious.visibility = View.INVISIBLE
+        quotes.size - 1 -> quoteNext.visibility = View.INVISIBLE
+        else -> {
+            quotePrevious.visibility = View.VISIBLE
+            quoteNext.visibility = View.VISIBLE
+        }
+    }
+
     fun nextQuote(view: View) {
         if(index < quotes.size - 1) index++
         showQuote()
+        setVisibilityOfButtons()
     }
 
     fun previousQuote(view: View) {
         if(index > 0) index--
         showQuote()
+        setVisibilityOfButtons()
     }
 }
