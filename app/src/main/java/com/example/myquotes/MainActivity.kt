@@ -27,17 +27,25 @@ class MainActivity : AppCompatActivity() {
 
     private var index = 0
 
+    private lateinit var quoteText: TextView
+    private lateinit var quoteAuthor: TextView
+    private lateinit var quoteYear: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        quoteText = findViewById(R.id.quote_text)
+        quoteAuthor = findViewById(R.id.quote_author)
+        quoteYear = findViewById(R.id.quote_year)
 
         showQuote()
     }
 
     private fun showQuote() {
-        findViewById<TextView>(R.id.quote_text).text = quotes[index].text
-        findViewById<TextView>(R.id.quote_author).text = quotes[index].author
-        findViewById<TextView>(R.id.quote_year).text = quotes[index].year
+        quoteText.text = quotes[index].text
+        quoteAuthor.text = quotes[index].author
+        quoteYear.text = quotes[index].year
     }
 
     fun nextQuote(view: View) {
