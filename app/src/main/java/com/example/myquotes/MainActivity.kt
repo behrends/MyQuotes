@@ -3,10 +3,11 @@ package com.example.myquotes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.myquotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
 
     private val quotes = listOf(
         Quote(
@@ -28,42 +29,32 @@ class MainActivity : AppCompatActivity() {
 
     private var index = 0
 
-    private lateinit var quoteText: TextView
-    private lateinit var quoteAuthor: TextView
-    private lateinit var quoteYear: TextView
-    private lateinit var quoteNext: Button
-    private lateinit var quotePrevious: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        quoteText = findViewById(R.id.quote_text)
-        quoteAuthor = findViewById(R.id.quote_author)
-        quoteYear = findViewById(R.id.quote_year)
-        quoteNext = findViewById(R.id.quote_next)
-        quotePrevious = findViewById(R.id.quote_previous)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         showQuote()
         setVisibilityOfButtons()
     }
 
     private fun showQuote() {
-        quoteText.text = quotes[index].text
-        quoteAuthor.text = quotes[index].author
-        quoteYear.text = quotes[index].year
+        binding.apply {
+            quoteText.text = quotes[index].text
+            quoteAuthor.text = quotes[index].author
+            quoteYear.text = quotes[index].year
+        }
     }
 
     private fun setVisibilityOfButtons() = when (index) {
-        0 -> {
+        0 -> binding.apply {
             quotePrevious.visibility = View.INVISIBLE
             quoteNext.visibility = if(quotes.size > 1) View.VISIBLE else View.INVISIBLE
         }
-        quotes.size - 1 -> {
+        quotes.size - 1 -> binding.apply {
             quoteNext.visibility = View.INVISIBLE
             quotePrevious.visibility = if(quotes.size > 1) View.VISIBLE else View.INVISIBLE
         }
-        else -> {
+        else -> binding.apply {
             quotePrevious.visibility = View.VISIBLE
             quoteNext.visibility = View.VISIBLE
         }
