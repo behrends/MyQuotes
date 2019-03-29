@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.example.myquotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var model: QuoteViewModel
 
     private val quotes = listOf(
         Quote(
@@ -27,21 +29,20 @@ class MainActivity : AppCompatActivity() {
         )
     )
 
-    private var index = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        model = ViewModelProviders.of(this).get(QuoteViewModel::class.java)
 
         showQuote()
         setVisibilityOfButtons()
     }
 
     private fun showQuote() {
-        binding.quote = quotes[index]
+        binding.quote = quotes[model.index]
     }
 
-    private fun setVisibilityOfButtons() = when (index) {
+    private fun setVisibilityOfButtons() = when (model.index) {
         0 -> binding.apply {
             quotePrevious.visibility = View.INVISIBLE
             quoteNext.visibility = if(quotes.size > 1) View.VISIBLE else View.INVISIBLE
@@ -57,13 +58,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nextQuote(view: View) {
-        if(index < quotes.size - 1) index++
+        if(model.index < quotes.size - 1) model.index++
         showQuote()
         setVisibilityOfButtons()
     }
 
     fun previousQuote(view: View) {
-        if(index > 0) index--
+        if(model.index > 0) model.index--
         showQuote()
         setVisibilityOfButtons()
     }
