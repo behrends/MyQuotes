@@ -38,11 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showQuote() {
-        binding.apply {
-            quoteText.text = quotes[index].text
-            quoteAuthor.text = quotes[index].author
-            quoteYear.text = quotes[index].year
-        }
+        binding.quote = quotes[index]
     }
 
     private fun setVisibilityOfButtons() = when (index) {
