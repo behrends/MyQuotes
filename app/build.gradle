@@ -31,6 +31,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$supportLibrary_version"
     implementation "androidx.core:core-ktx:$ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayout_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
