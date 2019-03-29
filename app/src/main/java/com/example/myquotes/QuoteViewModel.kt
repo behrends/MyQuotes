@@ -1,10 +1,11 @@
 package com.example.myquotes
 
 import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 
 class QuoteViewModel : ViewModel() {
-    private val quotes = listOf(
+     val quotes = listOf(
         Quote(
             "Probleme kann man niemals mit derselben Denkweise lösen, durch die sie entstanden sind.",
             "Albert Einstein",
@@ -22,20 +23,20 @@ class QuoteViewModel : ViewModel() {
         )
     )
 
-    var index = 0
-    var quote = ObservableField(quotes[index])
+    var index = ObservableInt(0)
+    var quote = ObservableField(quotes[index.get()])
 
     fun nextQuote() {
-        if(index < quotes.size - 1) {
-            index++
-            quote.set(quotes[index])
+        if(index.get() < quotes.size - 1) {
+            index.set(index.get() + 1)
+            quote.set(quotes[index.get()])
         }
     }
 
     fun previousQuote() {
-        if(index > 0) {
-            index--
-            quote.set(quotes[index])
+        if(index.get() > 0) {
+            index.set(index.get() - 1)
+            quote.set(quotes[index.get()])
         }
     }
 }
