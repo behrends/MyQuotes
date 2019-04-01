@@ -3,7 +3,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="android.view.View"/>
         <variable name="viewmodel" type="com.example.myquotes.QuoteViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +61,7 @@
                 app:layout_constraintStart_toEndOf="@+id/quote_previous"
                 android:layout_marginBottom="24dp"
                 android:onClick="@{() -> viewmodel.nextQuote()}"
-                android:visibility="@{viewmodel.isLast ? View.INVISIBLE : View.VISIBLE}"/>
+                app:hideView="@{viewmodel.isLast}"/>
         <Button
                 android:id="@+id/quote_previous"
                 android:text="@string/previous"
@@ -72,7 +71,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/quote_next"
                 app:layout_constraintTop_toTopOf="@+id/quote_next"
                 android:onClick="@{() -> viewmodel.previousQuote()}"
-                android:visibility="@{viewmodel.isFirst ? View.INVISIBLE : View.VISIBLE}"/>
+                app:hideView="@{viewmodel.isFirst}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
