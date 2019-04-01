@@ -1,8 +1,8 @@
 package com.example.myquotes
 
-import androidx.databinding.ObservableBoolean
-import androidx.databinding.ObservableField
-import androidx.databinding.ObservableInt
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class QuoteViewModel : ViewModel() {
@@ -25,25 +25,24 @@ class QuoteViewModel : ViewModel() {
     )
 
     private var index = 0
-    var quote = ObservableField(quotes[index])
-    var isFirst = ObservableBoolean(true)
-    var isLast = ObservableBoolean(false)
+    private val _quote = MutableLiveData<Quote>().apply { value = quotes[index] }
+    val quote: LiveData<Quote>
+        get() = _quote
+
+    val isFirst = Transformations.map(quote) { index == 0 }
+    val isLast = Transformations.map(quote) { index == quotes.size - 1 }
 
     fun nextQuote() {
         if(index < quotes.size - 1) {
             index++
-            quote.set(quotes[index])
-            isFirst.set(index == 0)
-            isLast.set(index == quotes.size - 1)
+            _quote.value = quotes[index]
         }
     }
 
     fun previousQuote() {
         if(index > 0) {
             index--
-            quote.set(quotes[index])
-            isFirst.set(index == 0)
-            isLast.set(index == quotes.size - 1)
+            _quote.value = quotes[index]
         }
     }
 }
