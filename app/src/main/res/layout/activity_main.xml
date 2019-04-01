@@ -62,7 +62,7 @@
                 app:layout_constraintStart_toEndOf="@+id/quote_previous"
                 android:layout_marginBottom="24dp"
                 android:onClick="@{() -> viewmodel.nextQuote()}"
-                android:visibility="@{viewmodel.index == viewmodel.quotes.size - 1 ? View.INVISIBLE : View.VISIBLE}"/>
+                android:visibility="@{viewmodel.isLast ? View.INVISIBLE : View.VISIBLE}"/>
         <Button
                 android:id="@+id/quote_previous"
                 android:text="@string/previous"
@@ -72,7 +72,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/quote_next"
                 app:layout_constraintTop_toTopOf="@+id/quote_next"
                 android:onClick="@{() -> viewmodel.previousQuote()}"
-                android:visibility="@{viewmodel.index == 0 ? View.INVISIBLE : View.VISIBLE}"/>
+                android:visibility="@{viewmodel.isFirst ? View.INVISIBLE : View.VISIBLE}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

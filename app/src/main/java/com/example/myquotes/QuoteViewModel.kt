@@ -1,5 +1,6 @@
 package com.example.myquotes
 
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
@@ -23,20 +24,26 @@ class QuoteViewModel : ViewModel() {
         )
     )
 
-    var index = ObservableInt(0)
-    var quote = ObservableField(quotes[index.get()])
+    private var index = 0
+    var quote = ObservableField(quotes[index])
+    var isFirst = ObservableBoolean(true)
+    var isLast = ObservableBoolean(false)
 
     fun nextQuote() {
-        if(index.get() < quotes.size - 1) {
-            index.set(index.get() + 1)
-            quote.set(quotes[index.get()])
+        if(index < quotes.size - 1) {
+            index++
+            quote.set(quotes[index])
+            isFirst.set(index == 0)
+            isLast.set(index == quotes.size - 1)
         }
     }
 
     fun previousQuote() {
-        if(index.get() > 0) {
-            index.set(index.get() - 1)
-            quote.set(quotes[index.get()])
+        if(index > 0) {
+            index--
+            quote.set(quotes[index])
+            isFirst.set(index == 0)
+            isLast.set(index == quotes.size - 1)
         }
     }
 }
