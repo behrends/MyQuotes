@@ -35,10 +35,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="24dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:textSize="18sp"
                 tools:text="-- Heraklit"
-                android:gravity="end"/>
+                android:textAlignment="textEnd"/>
         <TextView
                 android:id="@+id/quote_year"
                 android:text="@{viewmodel.quote.year}"
@@ -48,11 +47,10 @@
                 app:layout_constraintEnd_toEndOf="@+id/quote_author"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:textSize="12sp"
                 tools:text="480 v. Chr."
-                android:gravity="end"/>
+                android:textAlignment="textEnd"/>
         <Button
                 android:id="@+id/quote_next"
                 android:text="@string/next"
