@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">MyQuotes</string>
-    <string name="next">Nächstes</string>
-    <string name="previous">Voriges</string>
 </resources>
