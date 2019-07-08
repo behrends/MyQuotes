@@ -13,5 +13,9 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewmodel = ViewModelProviders.of(this).get(QuoteViewModel::class.java)
         binding.lifecycleOwner = this
+
+        val viewPager = binding.quoteViewPager
+        val adapter = QuoteViewPagerAdapter()
+        viewPager.adapter = adapter
     }
 }
