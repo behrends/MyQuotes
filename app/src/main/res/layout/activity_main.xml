@@ -5,15 +5,23 @@
     <data>
         <variable name="viewmodel" type="com.example.myquotes.QuoteViewModel"/>
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            android:orientation="vertical">
+
+        <Button
+                android:id="@+id/quote_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Neues Zitat"
+                android:onClick="addQuote"/>
 
         <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/quote_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

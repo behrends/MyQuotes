@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <EditText
+            android:id="@+id/new_quote_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Zitat"/>
+    <EditText
+            android:id="@+id/new_quote_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Autor"/>
+    <EditText
+            android:id="@+id/new_quote_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jahr"/>
+</LinearLayout>
