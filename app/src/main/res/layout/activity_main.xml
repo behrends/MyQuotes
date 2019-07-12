@@ -21,7 +21,16 @@
         <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/quote_view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                app:isGone="@{viewmodel.hasNoQuotes}"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/no_quotes"
+                android:textSize="36sp"
+                android:gravity="center"
+                app:isGone="@{!viewmodel.hasNoQuotes}"/>
 
     </LinearLayout>
 </layout>
