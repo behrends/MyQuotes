@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.myquotes.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.dialog_new_quote.*
 
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this).get(QuoteViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(QuoteViewModel::class.java)
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
